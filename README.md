@@ -13,7 +13,7 @@
 
 Set Transformer from the paper "Set Transformer: A Framework for Attention-based Permutation-Invariant Neural Networks" is based on Isab, an attention scheme inspired by inducing point methods from sparse Gaussian process literature and making it permutation invariant. It proposes to reduce attention from O(n²) to O(mn), where m is the number of inducing points (learned latents).
 
-![](media/architecture.png)
+![](media/architecture.PNG)
 
 ## Installation
 
