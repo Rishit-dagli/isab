@@ -36,3 +36,24 @@ class Attention(tf.keras.layers.Layer):
         out = rearrange(out, 'b h n d -> b n (h d)', h = h)
         return self.to_out(out)
 
+class Isab(tf.keras.layers.Layer):
+    def __init__(self, dim, heads = 8, num_latents = None):
+        super(Isab, self).__init__()
+        if num_latents is not None:
+            self.latents = tf.Variable(tf.random.normal((num_latents, dim)))
+        else:
+            self.latents = None
+        self.attn1 = Attention(dim, heads)
+        self.attn2 = Attention(dim, heads)
+    
+    def call(self, inputs, latents = None, mask = None):
+        b = inputs.shape[0]
+        if latents is not None and self.latents is not None:
+            assert 'you can only either learn the latents within the module, or pass it in externally'
+        if latents is None:
+            latents = self.latents
+        if len(latents.shape) == 2:
+            latents = repeat(latents, 'n d -> b n d', b = b)
+        latents = self.attn1(latents, inputs, mask = mask)
+        out = self.attn2(inputs, latents)
+        return out, latents
