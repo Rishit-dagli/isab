@@ -11,7 +11,7 @@
 [![GitHub followers](https://img.shields.io/github/followers/Rishit-dagli?label=Follow&style=social)](https://github.com/Rishit-dagli)
 [![Twitter Follow](https://img.shields.io/twitter/follow/rishit_dagli?style=social)](https://twitter.com/intent/follow?screen_name=rishit_dagli)
 
-Set Transformer from the paper "Set Transformer: A Framework for Attention-based Permutation-Invariant Neural Networks" is based on Isab, an attention scheme inspired by inducing point methods from sparse Gaussian process literature and making it permutation invariant. It proposes to reduce attention from O(n²) to O(mn), where m is the number of inducing points (learned latents).
+Set Transformer from the paper ["Set Transformer: A Framework for Attention-based Permutation-Invariant Neural Networks"](https://arxiv.org/abs/1810.00825) is based on Isab, an attention scheme inspired by inducing point methods from sparse Gaussian process literature and making it permutation invariant. It proposes to reduce attention from O(n²) to O(mn), where m is the number of inducing points (learned latents).
 
 ![](media/architecture.PNG)
 
